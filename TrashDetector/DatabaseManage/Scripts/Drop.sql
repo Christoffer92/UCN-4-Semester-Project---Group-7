@@ -1,3 +1,3 @@
 ﻿USE TSourceDatabase
 
-DROP TABLE images;
+DROP TABLE ImagesTable;

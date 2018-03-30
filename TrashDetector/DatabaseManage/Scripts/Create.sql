@@ -1,7 +1,9 @@
 ﻿USE TSourceDatabase
 
-CREATE TABLE images (
-	id int identity(1,1)primary key ,
-	Longtitude varchar(50),
-	latitude varchar(50)
-);
+DROP TABLE IF EXISTS images;
+
+CREATE TABLE ImagesTable AS FileTable
+WITH (
+ FileTable_Directory = 'ImagesDirectory',
+ FileTable_Collate_Filename = database_default
+)

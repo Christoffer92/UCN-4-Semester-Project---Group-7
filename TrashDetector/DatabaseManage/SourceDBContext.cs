@@ -6,11 +6,13 @@ using System.Linq;
 using System.Data.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace DatabaseManage
 {
     public class SourceDBContext : DataContext
     {
+
         public static string ConnectionString = @"Data Source=" + Environment.MachineName + @"\;"
         + "Initial Catalog=TSourceDatabase;"
         + "Integrated Security=True;"
@@ -20,11 +22,11 @@ namespace DatabaseManage
         + "ApplicationIntent=ReadWrite;"
         + "MultiSubnetFailover=False";
 
-        public Table<Image> Images;
+        //public Table<ImageFile> ImagesTable;
+        //public Table<Stream> ImagesTable;
 
         public SourceDBContext() : base(ConnectionString) {
 
         }
-
     }
 }
