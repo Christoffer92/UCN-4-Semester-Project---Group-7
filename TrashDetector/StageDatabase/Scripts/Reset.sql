@@ -15,6 +15,5 @@ CREATE TABLE ImageInformation (
 	locatio VARCHAR(24),
 	timee VARCHAR(24),
 	isTrash BIT,
-	PRIMARY KEY id,
-	FOREIGN KEY (fileID) REFERENCES Im???
+	PRIMARY KEY id
 )
