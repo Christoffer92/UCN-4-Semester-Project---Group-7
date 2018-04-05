@@ -9,27 +9,60 @@ using System.IO;
 
 namespace ModelLibrary
 {
-    [Table(Name = "images")]
+
+    //This class contains all fields equal to the columns in a filetable in sql.
+
+
+    [Table(Name = "imagesTable")]
     public class ImageFile 
     {
-        //Image file field will be done later.
-
-        [Column(IsPrimaryKey = true, IsDbGenerated = true)]
-        public int Id { get; set; }
-
+        [Column(IsPrimaryKey = true, IsDbGenerated = false)]
+        public Guid stream_id { get; set; }
 
         [Column()]
-        public Stream fileStream;
-
-
-
+        public Byte[] file_stream;
 
         [Column()]
-        public string Longtitude { get; set; }
+        public string name;
 
         [Column()]
-        private string Latitude { get; set; }
+        public Byte[] path_locator;
 
+        [Column()]
+        public Byte[] parent_path_locator;
+
+        [Column()]
+        public string file_type;
+
+        [Column()]
+        public string cached_file_size;
+
+        [Column()]
+        public DateTimeOffset creation_time;
+
+        [Column()]
+        public DateTimeOffset last_access_time;
+
+        [Column()]
+        public bool is_directory;
+
+        [Column()]
+        public bool is_offline;
+
+        [Column()]
+        public bool is_hidden;
+
+        [Column()]
+        public bool is_readonly;
+
+        [Column()]
+        public bool is_archive;
+
+        [Column()]
+        public bool is_system;
+
+        [Column()]
+        public bool is_temporary;
         
     }
 }
