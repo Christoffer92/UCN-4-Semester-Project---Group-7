@@ -16,7 +16,7 @@ namespace ModelLibrary
     [Table(Name = "imagesTable")]
     public class ImageFile 
     {
-        [Column(IsPrimaryKey = true, IsDbGenerated = false)]
+        [Column(IsPrimaryKey = true, IsDbGenerated = true)]
         public Guid stream_id { get; set; }
 
         [Column()]

@@ -21,6 +21,7 @@ namespace DatabaseManage
         + "ApplicationIntent=ReadWrite;"
         + "MultiSubnetFailover=False";
 
+        
 
         public Table<ImageFile> ImagesTable;
         //public Table<Stream> ImagesTable;
