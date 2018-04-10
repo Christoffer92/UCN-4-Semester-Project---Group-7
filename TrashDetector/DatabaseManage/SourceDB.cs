@@ -73,7 +73,6 @@ namespace DatabaseManage
         }
 
         public ImageFile GetImageFileStream(string name) {
-
                 using (var db = new SourceDBContext())
                 {
                     return (from imageFile in db.ImagesTable where imageFile.name.Equals(name) select imageFile).First();
@@ -82,10 +81,8 @@ namespace DatabaseManage
 
         public string GetImageFileStreamTest(string name)
         {
-
             using (var db = new SourceDBContext())
             {
-                
                 return (from imageFile in db.ImagesTable where imageFile.name.Equals(name) select imageFile).First().name;
             }
         }
