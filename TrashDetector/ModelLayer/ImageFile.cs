@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Linq.Mapping;
 
-namespace SourceDatabase
+namespace ModelLayer
 {
     public class ImageFile
     {

@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Linq;
-using SourceDatabase;
 using ModelLayer;
 
 namespace SourceDB
 {
-    class SourceDBContext : DataContext
+    public class SourceDBContext : DataContext
     {
 
         public static string ConnectionString = @"Data Source=" + Environment.MachineName + @"\;"
@@ -21,8 +20,8 @@ namespace SourceDB
         + "ApplicationIntent=ReadWrite;"
         + "MultiSubnetFailover=False";
 
-        Table<ImageFile> imageFiles;
-        Table<ImageInfo> imageInfo;
+        public Table<ImageFile> imageFiles;
+        public Table<ImageInfo> imageInfos;
 
         public SourceDBContext() : base(ConnectionString){
         }

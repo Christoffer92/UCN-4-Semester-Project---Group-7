@@ -24,9 +24,14 @@ namespace SourceDB
 
          * 
          * */
-        public void InsertImageFile(ImageFile imageFile)
+        public ImageFile InsertImageFile(ImageFile imageFile)
         {
-
+            using (var db = new SourceDBContext())
+            {
+                db.imageFiles.InsertOnSubmit(imageFile);
+                db.SubmitChanges();
+            }
+            return imageFile;
         }
 
         public void InsertImageInfo(ImageInfo imageInfo)
@@ -76,9 +81,6 @@ namespace SourceDB
 
         public bool DatabaseExists()
         {
-
-
-
             try
             {
                 using (var db = new SourceDBContext())

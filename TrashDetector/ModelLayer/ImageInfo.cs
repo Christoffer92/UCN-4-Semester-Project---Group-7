@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SourceDatabase
+namespace ModelLayer
 {
 
     [Table(Name = "ImageInfoTable")]
