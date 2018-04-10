@@ -21,8 +21,7 @@ namespace SourceDB
 
 
             ImageFile imageFile = new ImageFile();
-            imageFile.filePath = @"C:\Users\Chris\OneDrive\Skrivebord\SimpelExample.jpg";
-            imageFile.ID = 2;
+            imageFile.FilePath = @"C:\Users\Chris\OneDrive\Skrivebord\SimpelExample.jpg";
 
 
             sourceDB.InsertImageFile(imageFile);

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ModelLayer
 {
 
-    [Table(Name = "ImageInfoTable")]
+    [Table(Name = "ImageInfos")]
     public class ImageInfo
     {
 

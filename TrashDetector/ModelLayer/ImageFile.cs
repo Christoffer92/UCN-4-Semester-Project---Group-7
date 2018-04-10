@@ -7,12 +7,13 @@ using System.Data.Linq.Mapping;
 
 namespace ModelLayer
 {
+    [Table(Name = "ImageFiles")]
     public class ImageFile
     {
         [Column(IsPrimaryKey = true, IsDbGenerated = true)]
         public int ID { get; set; }
 
         [Column()]
-        public string filePath { get; set; }
+        public string FilePath { get; set; }
     }
 }

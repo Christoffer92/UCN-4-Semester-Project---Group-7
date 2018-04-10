@@ -2,7 +2,7 @@
 
 CREATE TABLE imageFiles (
 ID int NOT NULL PRIMARY KEY,
-FilePath varchar(400)
+FilePath VARCHAR(400)
 );
 
 CREATE TABLE imageInfos (
