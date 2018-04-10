@@ -14,6 +14,11 @@ namespace ModelLayer
         public int ID { get; set; }
 
         [Column()]
+        public string FileName { get; set; }
+
+        [Column()]
         public string FilePath { get; set; }
+
+
     }
 }

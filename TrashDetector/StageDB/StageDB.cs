@@ -1,36 +1,45 @@
-﻿using System;
+﻿using ModelLayer;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ModelLayer;
 
-
-namespace SourceDB
+namespace StageDB
 {
-    public class SourceDB
+    public class StageDB
     {
         public bool DatabaseExists()
         {
             try
             {
-                using (var db = new SourceDBContext())
+                using (var db = new StageDBContext())
                 {
                     return db.DatabaseExists();
                 }
             }
             catch (Exception)
             {
-                throw new Exception("No Connection to the Source Database.");
+                throw new Exception("No Connection to the Stage Database.");
             }
         }
 
         #region Insert Methods 
 
+        public ImageInfo InsertImageInfo(ImageInfo imageInfo)
+        {
+            using (var db = new StageDBContext())
+            {
+                db.imageInfos.InsertOnSubmit(imageInfo);
+                db.SubmitChanges();
+            }
+            return imageInfo;
+        }
+
         public ImageFile InsertImageFile(ImageFile imageFile)
         {
-            using (var db = new SourceDBContext())
+            using (var db = new StageDBContext())
             {
                 db.imageFiles.InsertOnSubmit(imageFile);
                 db.SubmitChanges();
@@ -48,7 +57,7 @@ namespace SourceDB
 
             try
             {
-                using (var db = new SourceDBContext())
+                using (var db = new StageDBContext())
                 {
                     db.imageFiles.InsertOnSubmit(imageFile);
                     db.SubmitChanges();
@@ -78,18 +87,6 @@ namespace SourceDB
 
         #endregion
 
-        #region Get Methods
-
-        public ImageFile[] GetImageFiles(int count)
-        {
-            using (var db = new SourceDBContext())
-            {
-            
-            }
-
-                return null;
-        }
-
-        #endregion
+        
     }
 }

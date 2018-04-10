@@ -14,17 +14,8 @@ namespace SourceDB
             SourceDB sourceDB = new SourceDB();
             sourceDB.DatabaseExists();
 
-
-            //sourceDB.InsertSingleImageFile(@"C:\Users\Chris\OneDrive\Skrivebord\SimpelExample.jpg");
-            //sourceDB.InsertAllImageFilesFromFolder(@"C:\Users\Chris\OneDrive\Skrivebord\Pictures");
-
-
-
-            ImageFile imageFile = new ImageFile();
-            imageFile.FilePath = @"C:\Users\Chris\OneDrive\Skrivebord\SimpelExample.jpg";
-
-
-            sourceDB.InsertImageFile(imageFile);
+            sourceDB.InsertSingleImageFile(@"C:\Users\Chris\OneDrive\Skrivebord\SimpelExample.jpg");
+            sourceDB.InsertAllImageFilesFromFolder(@"C:\TrashDetector\Data\SourceDBData");
 
             Console.ReadLine();
 
