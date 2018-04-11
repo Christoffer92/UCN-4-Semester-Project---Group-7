@@ -18,8 +18,18 @@ namespace ModelLayer
         [Column()]
         public int ImageFileID { get; set; }
 
+
         [Column()]
-        public string LocationPoint { get; set; }
+        public decimal Latitiude { get; set; }
+
+        [Column()]
+        public decimal Longitude { get; set; }
+
+        [Column()]
+        public string DateCreated { get; set; }
+
+
+
 
         [Column()]
         public bool IsTrash { get; set; }

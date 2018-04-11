@@ -10,7 +10,10 @@ namespace TransformData
     {
         public static void Main(string[] args)
         {
+            JpegInfoCollecter jInfoCollecter = new JpegInfoCollecter();
+            jInfoCollecter.CollectInformation();
 
+            Console.ReadLine();
         }
     }
 }

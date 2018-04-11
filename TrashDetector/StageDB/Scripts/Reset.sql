@@ -12,6 +12,9 @@ FilePath varchar(400)
 CREATE TABLE imageInfos (
 ID int IDENTITY(1,1) PRIMARY KEY,
 ImageFileID INT,
-LocationPoint VARCHAR(100),
-IsTrash bit
+Latitiude VARCHAR(100),
+Longitude VARCHAR(100),
+DateCreated VARCHAR(100),
+IsTrash BIT
+
 );

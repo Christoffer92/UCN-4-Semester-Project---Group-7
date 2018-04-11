@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.Linq;
 using ModelLayer;
 
-namespace SourceDB
+namespace SourceDatabase
 {
     public class SourceDBContext : DataContext
     {

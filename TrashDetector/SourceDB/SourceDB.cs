@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using ModelLayer;
 
 
-namespace SourceDB
+namespace SourceDatabase
 {
     public class SourceDB
     {
@@ -80,14 +80,26 @@ namespace SourceDB
 
         #region Get Methods
 
-        public ImageFile[] GetImageFiles(int count)
+        public ImageFile GetImageFile(int id)
         {
             using (var db = new SourceDBContext())
             {
-            
+                return (from imageFile in db.imageFiles where imageFile.ID == id select imageFile).First();
             }
+        }
 
-                return null;
+        public ImageFile[] GetImageFiles(int idStart, int count)
+        {
+            ImageFile[] imageFiles = new ImageFile[count];
+            int j = 0;
+
+            for (int i = idStart; i <= count; i++)
+            {
+                imageFiles[j] = GetImageFile(idStart);
+                j++;
+
+            }
+                return imageFiles;
         }
 
         #endregion

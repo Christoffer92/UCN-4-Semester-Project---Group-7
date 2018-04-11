@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StageDB
+namespace StageDatabase
 {
     class Program
     {
@@ -16,13 +16,6 @@ namespace StageDB
 
            // stageDB.InsertSingleImageFile(@"C:\Users\Chris\OneDrive\Skrivebord\SimpelExample.jpg");
            // stageDB.InsertAllImageFilesFromFolder(@"C:\TrashDetector\Data\StageDBData");
-
-            ImageInfo imageInfo = new ImageInfo();
-            imageInfo.ImageFileID = 2;
-            imageInfo.IsTrash = false;
-            imageInfo.LocationPoint = "32, 32";
-
-            stageDB.InsertImageInfo(imageInfo);
 
 
             Console.ReadLine();

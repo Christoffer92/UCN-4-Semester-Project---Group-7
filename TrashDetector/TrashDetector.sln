@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResultDB", "ResultDB\Result
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelLayer", "ModelLayer\ModelLayer.csproj", "{2A40440C-8FAF-4772-8FF9-A1C03473B57A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceDB", "SourceDB\SourceDB.csproj", "{CA7471D1-85D6-41E7-ADC4-800404E8827A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceDatabase", "SourceDB\SourceDatabase.csproj", "{CA7471D1-85D6-41E7-ADC4-800404E8827A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StageDB", "StageDB\StageDB.csproj", "{A6A068FA-8ACB-4973-A9B4-98887D38A4B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StageDatabase", "StageDB\StageDatabase.csproj", "{A6A068FA-8ACB-4973-A9B4-98887D38A4B7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransformData", "TransformData\TransformData.csproj", "{A1A784A9-7066-4C2B-B3A6-BCCA2F15D2D0}"
 EndProject

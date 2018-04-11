@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.Linq;
 using ModelLayer;
 
-namespace StageDB
+namespace StageDatabase
 {
     public class StageDBContext : DataContext
     {

@@ -32,9 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="photo.exif, Version=1.1.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\photo.exif.1.1.16.0\lib\net40\photo.exif.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,19 +53,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ModelLayer\ModelLayer.csproj">
       <Project>{2a40440c-8faf-4772-8ff9-a1c03473b57a}</Project>
       <Name>ModelLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SourceDB\SourceDB.csproj">
+    <ProjectReference Include="..\SourceDB\SourceDatabase.csproj">
       <Project>{ca7471d1-85d6-41e7-adc4-800404e8827a}</Project>
-      <Name>SourceDB</Name>
+      <Name>SourceDatabase</Name>
     </ProjectReference>
-    <ProjectReference Include="..\StageDB\StageDB.csproj">
+    <ProjectReference Include="..\StageDB\StageDatabase.csproj">
       <Project>{a6a068fa-8acb-4973-a9b4-98887d38a4b7}</Project>
-      <Name>StageDB</Name>
+      <Name>StageDatabase</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
