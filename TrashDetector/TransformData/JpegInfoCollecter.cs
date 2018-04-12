@@ -219,30 +219,18 @@ namespace TransformData
 
             //ExtractLocation(image1);
             
-                        List<ImageFile> imageFiles = sourceDB.GetImageFiles(1, 40);
-                
-            Console.WriteLine(imageFiles.ToList().Count);
-            //Console.WriteLine(imageFiles[2].FileName);
+                       
+   
 
-            ImageFile imageFile = imageFiles.First();
-            Console.WriteLine(imageFile.ID);
-            Console.ReadLine();
+            List<ImageFile> imageFiles = sourceDB.GetAllImageFiles();
 
-
-            //Console.WriteLine(imageFiles[5].ToString())
-            ;
-
-            //Console.WriteLine(sourceDB.GetImageFile(5).FileName);
-
-
-            /*
-                        foreach (ImageFile imageFile in imageFiles)
+            foreach (ImageFile imageFile in imageFiles)
                         {
                             Console.WriteLine("Inserting image: " + imageFile.FileName);
                             ImageInfo imageInfo = CollectImageInfo(imageFile);
                             InsertSingleImageInfoIntoDB(imageInfo);
                         }
-                        */
+                        
         }
 
         public ImageInfo CollectImageInfo(ImageFile imageFile)

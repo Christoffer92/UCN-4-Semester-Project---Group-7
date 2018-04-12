@@ -88,19 +88,22 @@ namespace SourceDatabase
             }
         }
 
-        public List<ImageFile> GetImageFiles(int idStart, int count)
+        public List<ImageFile> GetAllImageFiles()
         {
-            //ImageFile[] imageFiles = new ImageFile[count];
             List<ImageFile> imageFiles = new List<ImageFile>();
 
-
-            for (int i = idStart; i >= count; i++)
+            using (var db = new SourceDBContext())
             {
-                imageFiles.Add(GetImageFile(i));
+                var Query = from imageFile in db.imageFiles select imageFile;
+                foreach (ImageFile item in Query)
+                {
+                    imageFiles.Add(item);
+                }
             }
-                return imageFiles;
-        }
 
-        #endregion
+            return imageFiles;
+
+            #endregion
+        }
     }
 }
