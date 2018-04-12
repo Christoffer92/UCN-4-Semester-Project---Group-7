@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
-using photo.exif;
 using System.Drawing.Imaging;
 using StageDatabase;
 
@@ -211,27 +210,39 @@ namespace TransformData
         public void CollectInformation()
         {
             SourceDB sourceDB = new SourceDB();
-            ImageFile imageFile = sourceDB.GetImageFile(1);
 
-
-            ImageInfo imageInfo = CollectImageInfo(imageFile);
-            InsertSingleImageInfoIntoDB(imageInfo);
-
+            // ImageFile imageFile = sourceDB.GetImageFile(1);
 
             //Image image = new Bitmap(@"C:\TrashDetector\Data\SourceDBData\SimpelExample.jpg");
 
             //PrintMetaData(image);
 
             //ExtractLocation(image1);
+            
+                        List<ImageFile> imageFiles = sourceDB.GetImageFiles(1, 40);
+                
+            Console.WriteLine(imageFiles.ToList().Count);
+            //Console.WriteLine(imageFiles[2].FileName);
+
+            ImageFile imageFile = imageFiles.First();
+            Console.WriteLine(imageFile.ID);
+            Console.ReadLine();
+
+
+            //Console.WriteLine(imageFiles[5].ToString())
+            ;
+
+            //Console.WriteLine(sourceDB.GetImageFile(5).FileName);
+
 
             /*
-                        ImageFile[] imageFiles = sourceDB.GetImageFiles(1, 5);
-
                         foreach (ImageFile imageFile in imageFiles)
                         {
-                            Image image = new Bitmap(imageFile.FilePath);
-                            ExtractLocation(image);
-                        }*/
+                            Console.WriteLine("Inserting image: " + imageFile.FileName);
+                            ImageInfo imageInfo = CollectImageInfo(imageFile);
+                            InsertSingleImageInfoIntoDB(imageInfo);
+                        }
+                        */
         }
 
         public ImageInfo CollectImageInfo(ImageFile imageFile)

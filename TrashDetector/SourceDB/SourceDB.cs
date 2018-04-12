@@ -88,16 +88,15 @@ namespace SourceDatabase
             }
         }
 
-        public ImageFile[] GetImageFiles(int idStart, int count)
+        public List<ImageFile> GetImageFiles(int idStart, int count)
         {
-            ImageFile[] imageFiles = new ImageFile[count];
-            int j = 0;
+            //ImageFile[] imageFiles = new ImageFile[count];
+            List<ImageFile> imageFiles = new List<ImageFile>();
 
-            for (int i = idStart; i <= count; i++)
+
+            for (int i = idStart; i >= count; i++)
             {
-                imageFiles[j] = GetImageFile(idStart);
-                j++;
-
+                imageFiles.Add(GetImageFile(i));
             }
                 return imageFiles;
         }
