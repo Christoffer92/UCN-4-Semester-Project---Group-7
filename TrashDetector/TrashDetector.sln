@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StageDatabase", "StageDB\St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransformData", "TransformData\TransformData.csproj", "{A1A784A9-7066-4C2B-B3A6-BCCA2F15D2D0}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ImageRegonition", "ImageRegonition\ImageRegonition.pyproj", "{5C4F5802-EEE2-4AEF-831A-C8BCE5772639}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,8 @@ Global
 		{A1A784A9-7066-4C2B-B3A6-BCCA2F15D2D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1A784A9-7066-4C2B-B3A6-BCCA2F15D2D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1A784A9-7066-4C2B-B3A6-BCCA2F15D2D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C4F5802-EEE2-4AEF-831A-C8BCE5772639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C4F5802-EEE2-4AEF-831A-C8BCE5772639}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
