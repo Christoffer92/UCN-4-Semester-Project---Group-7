@@ -3,7 +3,7 @@ import os
 import glob
 from sklearn.utils import shuffle
 import numpy as np
-
+import SourceDatabase
 
 def load_train(train_path, image_size, classes):
     images = []
@@ -15,8 +15,18 @@ def load_train(train_path, image_size, classes):
     for fields in classes:   
         index = classes.index(fields)
         print('Now going to read {} files (Index: {})'.format(fields, index))
-        path = os.path.join(train_path, fields, '*g')
-        files = glob.glob(path)
+        
+        
+        #path = os.path.join(train_path, fields, '*g')
+        #files = glob.glob(path)
+
+
+        if fields == 'cigarettes':
+            files = SourceDatabase.getAllCigarettesImageFilesPaths()
+        elif fields == 'non_cigarettes':
+            files = SourceDatabase.getAllNonCigarettesImageFilesPaths()
+
+        
         for fl in files:
             image = cv2.imread(fl)
             image = cv2.resize(image, (image_size, image_size),0,0, cv2.INTER_LINEAR)

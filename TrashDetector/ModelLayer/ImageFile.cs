@@ -19,6 +19,8 @@ namespace ModelLayer
         [Column()]
         public string FilePath { get; set; }
 
+        [Column()]
+        public bool IsCigarette { get; set; }
 
     }
 }

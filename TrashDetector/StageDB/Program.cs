@@ -14,8 +14,8 @@ namespace StageDatabase
             StageDB stageDB = new StageDB();
             stageDB.DatabaseExists();
 
-           // stageDB.InsertSingleImageFile(@"C:\Users\Chris\OneDrive\Skrivebord\SimpelExample.jpg");
-           // stageDB.InsertAllImageFilesFromFolder(@"C:\TrashDetector\Data\StageDBData");
+            stageDB.InsertAllImageFilesFromFolder(@"C:\TrashDetector\Data\StageDBData\cigarettes");
+            stageDB.InsertAllImageFilesFromFolder(@"C:\TrashDetector\Data\StageDBData\non_cigarettes");
 
 
             Console.ReadLine();

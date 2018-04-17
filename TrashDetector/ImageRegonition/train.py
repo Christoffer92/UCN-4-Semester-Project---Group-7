@@ -12,11 +12,11 @@ seed(1)
 from tensorflow import set_random_seed
 set_random_seed(2)
 
-
-batch_size = 32
+ 
+batch_size = 10   #32
 
 #Prepare input data
-classes = ['dogs','cats']
+classes = ['cigarettes', 'non_cigarettes']
 num_classes = len(classes)
 
 # 20% of the data will automatically be used for validation
