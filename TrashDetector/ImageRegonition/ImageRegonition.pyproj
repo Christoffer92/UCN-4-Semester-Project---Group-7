@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>5c4f5802-eee2-4aef-831a-c8bce5772639</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Dataset.py</StartupFile>
+    <StartupFile>testClass.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,13 +22,18 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Dataset.py">
+    <Compile Include="dataset.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ImageRegonition.py" />
+    <Compile Include="predict.py" />
     <Compile Include="SourceDatabase.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="testClass.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="train.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|ContinuumAnalytics|Anaconda36-64" />
