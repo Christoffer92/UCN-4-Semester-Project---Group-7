@@ -26,7 +26,7 @@ def testReadTrainSets():
         cv2.destroyAllWindows()
     
 
-#testReadTrainSets()
+testReadTrainSets()
 #readTrainSets()
 
 
