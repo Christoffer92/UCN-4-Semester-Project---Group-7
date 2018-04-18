@@ -24,7 +24,7 @@ def getAllImageFilesPaths():
     return rowArray
 
 def getAllNonCigarettesImageFilesPaths():
-    connection = pyodbc.connect('Driver={SQL Server};''Server=LAPTOP-4OUIJ1DH;''Database=TSourceDatabase;''Trusted_Connection=yes') 
+    connection = pyodbc.connect('Driver={SQL Server};''Server=LAPTOP-4OUIJ1DH;''Database=TStageDatabase;''Trusted_Connection=yes') 
     cursor = connection.cursor() 
 
     SQLCommand = ("SELECT FilePath FROM imageFiles Where IsCigarette=0;") 
@@ -44,10 +44,10 @@ def getAllNonCigarettesImageFilesPaths():
     return rowArray
 
 def getAllCigarettesImageFilesPaths():
-    connection = pyodbc.connect('Driver={SQL Server};''Server=LAPTOP-4OUIJ1DH;''Database=TSourceDatabase;''Trusted_Connection=yes') 
+    connection = pyodbc.connect('Driver={SQL Server};''Server=LAPTOP-4OUIJ1DH;''Database=TStageDatabase;''Trusted_Connection=yes') 
     cursor = connection.cursor() 
 
-    SQLCommand = ("SELECT FilePath FROM imageFiles Where IsCigarette=0;") 
+    SQLCommand = ("SELECT FilePath FROM imageFiles Where IsCigarette=1;") 
     cursor.execute(SQLCommand) 
     rowArray = []
     
@@ -70,7 +70,7 @@ def getAllCigarettesImageFilesPaths():
 #Just a simply way of testing the method.
 def testGetAllImageFilesPaths():
 
-    rowArray = getAllImageFilesPaths()
+    rowArray = getAllCigarettesImageFilesPaths()
 
     for string in rowArray:
         print(string)

@@ -1,6 +1,8 @@
 import train
 import predict
 
-train.train(250)
+
+
+#train.train(1000)
 
 predict.runPridict()

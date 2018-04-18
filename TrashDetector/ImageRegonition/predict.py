@@ -4,10 +4,11 @@ import os,glob,cv2
 import sys,argparse
 
 def runPridict():
-    dir_path = R'C:\Users\Chris\OneDrive\Skrivebord\cv-tricks.com-master\cv-tricks.com-master\Tensorflow-tutorials\tutorial-2-image-classifier\testImage'
-    image_path = R'images.jpeg'
+    dir_path = R'C:\TrashDetector\predict'
+    image_path = R'SimpelExample.jpg'
 
     # First, pass the path of the image
+
     #dir_path = os.path.dirname(os.path.realpath(__file__))
     #image_path=sys.argv[1] 
     filename = dir_path +'\\' +image_path
@@ -28,9 +29,9 @@ def runPridict():
     ## Let us restore the saved model 
     sess = tf.Session()
     # Step-1: Recreate the network graph. At this step only graph is created.
-    saver = tf.train.import_meta_graph(R'C:\Users\Chris\OneDrive\Skrivebord\cv-tricks.com-master\cv-tricks.com-master\Tensorflow-tutorials\tutorial-2-image-classifier\dogs-cats-model.meta')
+    saver = tf.train.import_meta_graph(R'C:\TrashDetector\Data\StageDBData\cigarette-nonCigarette.meta')
     # Step-2: Now let's load the weights saved using the restore method.
-    saver.restore(sess, tf.train.latest_checkpoint(R'C:\Users\Chris\OneDrive\Skrivebord\cv-tricks.com-master\cv-tricks.com-master\Tensorflow-tutorials\tutorial-2-image-classifier'))
+    saver.restore(sess, tf.train.latest_checkpoint(R'C:\TrashDetector\Data\StageDBData'))
 
     #R'C:\Users\Chris\OneDrive\Skrivebord\cv-tricks.com-master\cv-tricks.com-master\Tensorflow-tutorials\tutorial-2-image-classifier\checkpoint'))
 
