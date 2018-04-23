@@ -1,9 +1,4 @@
-﻿USE TSourceDatabase
-
-DROP TABLE IF EXISTS imageFiles;
-DROP TABLE IF EXISTS imageInfos;
-
-USE TSourceDatabase
+﻿USE TTrainingDatabase
 
 CREATE TABLE imageFiles (
 ID int IDENTITY(1,1) PRIMARY KEY,

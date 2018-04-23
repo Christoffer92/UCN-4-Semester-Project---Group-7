@@ -224,13 +224,15 @@ namespace TransformData
 
             List<ImageFile> imageFiles = sourceDB.GetAllImageFiles();
 
+            int i = 1;
+
             foreach (ImageFile imageFile in imageFiles)
                         {
-                            Console.WriteLine("Inserting image: " + imageFile.FileName);
+                            Console.WriteLine("Inserting image: " + imageFile.FileName + " | " + i + " / " + imageFiles.Count);
                             ImageInfo imageInfo = CollectImageInfo(imageFile);
                             InsertSingleImageInfoIntoDB(imageInfo);
+                            i++;
                         }
-                        
         }
 
         public ImageInfo CollectImageInfo(ImageFile imageFile)
@@ -238,9 +240,20 @@ namespace TransformData
             Image image = new Bitmap(imageFile.FilePath);
 
             ImageInfo imageInfo = new ImageInfo();
-            imageInfo.Longitude = GetLongitude(image);
-            imageInfo.Latitiude = GetLatitiude(image);
-            imageInfo.DateCreated = GetDateCreated(image);
+            imageInfo.ImageFileID = imageFile.ID;
+
+            try
+            {
+                imageInfo.Longitude = GetLongitude(image);
+                imageInfo.Latitiude = GetLatitiude(image);
+                imageInfo.DateCreated = GetDateCreated(image);
+            }
+            catch (Exception)
+            {
+                
+            }
+
+
             return imageInfo;
         }
 

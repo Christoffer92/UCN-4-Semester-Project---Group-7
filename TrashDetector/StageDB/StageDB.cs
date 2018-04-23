@@ -55,6 +55,11 @@ namespace StageDatabase
             imageFile.FilePath = filePath;
             imageFile.FileName = fileName;
 
+            if (filePath.Contains("non_cigarettes"))
+                imageFile.IsCigarette = false;
+            else
+                imageFile.IsCigarette = true;
+
             try
             {
                 using (var db = new StageDBContext())
@@ -87,6 +92,46 @@ namespace StageDatabase
 
         #endregion
 
-        
+        #region Get Methods
+        public ImageFile GetImageFile(int id)
+        {
+            using (var db = new StageDBContext())
+            {
+                return (from imageFile in db.imageFiles where imageFile.ID == id select imageFile).First();
+            }
+        }
+
+        public List<ImageFile> GetAllImageFiles()
+        {
+            List<ImageFile> imageFiles = new List<ImageFile>();
+
+            using (var db = new StageDBContext())
+            {
+                var Query = from imageFile in db.imageFiles select imageFile;
+                foreach (ImageFile item in Query)
+                {
+                    imageFiles.Add(item);
+                }
+            }
+
+            return imageFiles;
+        }
+
+        public List<ImageFile> GetAllImageFilesWithCig(bool isCig)
+        {
+            List<ImageFile> imageFiles = new List<ImageFile>();
+
+            using (var db = new StageDBContext())
+            {
+                var Query = from imageFile in db.imageFiles where imageFile.IsCigarette == true select imageFile;
+                foreach (ImageFile item in Query)
+                {
+                    imageFiles.Add(item);
+                }
+            }
+
+            return imageFiles;
+        }
+        #endregion
     }
 }

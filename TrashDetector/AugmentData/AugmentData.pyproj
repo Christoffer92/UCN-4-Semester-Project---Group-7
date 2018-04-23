@@ -2,16 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>5c4f5802-eee2-4aef-831a-c8bce5772639</ProjectGuid>
+    <ProjectGuid>9d460bae-fb5e-4557-bc85-860008263b0a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>testClass.py</StartupFile>
+    <StartupFile>AugmentData.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>ImageRegonition</Name>
-    <RootNamespace>ImageRegonition</RootNamespace>
-    <InterpreterId>Global|ContinuumAnalytics|Anaconda36-64</InterpreterId>
+    <Name>AugmentData</Name>
+    <RootNamespace>AugmentData</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,21 +21,17 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="dataset.py">
+    <Compile Include="AugmentData.py" />
+    <Compile Include="dsad.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ImageRegonition.py" />
-    <Compile Include="predict.py" />
-    <Compile Include="TrainingDB.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="testClass.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="train.py" />
   </ItemGroup>
   <ItemGroup>
-    <InterpreterReference Include="Global|ContinuumAnalytics|Anaconda36-64" />
+    <ProjectReference Include="..\ImageRegonition\ImageRegonition.pyproj">
+      <Name>ImageRegonition</Name>
+      <Project>{5c4f5802-eee2-4aef-831a-c8bce5772639}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
