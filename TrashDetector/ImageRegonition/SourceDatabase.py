@@ -43,7 +43,7 @@ def getAllNonCigarettesImageFilesPaths():
 
 def getAllCigarettesImageFilesPaths(isCig):
     connection = pyodbc.connect('Driver={SQL Server};''Server=LAPTOP-4OUIJ1DH;''Database=TStageDatabase;''Trusted_Connection=yes') 
-    cursor = connection.cursor() 
+    cursor = connection.cursor()
 
     SQLCommand = '';
 

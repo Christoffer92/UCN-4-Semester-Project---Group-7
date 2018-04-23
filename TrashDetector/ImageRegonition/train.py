@@ -14,7 +14,7 @@ from tensorflow import set_random_seed
 set_random_seed(2)
 
  
-batch_size = 2  #32
+batch_size = 8  #32
 
 #Prepare input data
 classes = ['cigarettes', 'non_cigarettes']
@@ -24,7 +24,7 @@ num_classes = len(classes)
 validation_size = 0.2
 img_size = 128
 num_channels = 3
-train_path=R'C:\TrashDetector\Data\StageDBData'
+train_path=R'C:\TrashDetector\Data\trainingData'
 
 # We shall load all the training and validation images and labels into memory using openCV and use that during training
 data = dataset.read_train_sets(train_path, img_size, classes, validation_size=validation_size)
