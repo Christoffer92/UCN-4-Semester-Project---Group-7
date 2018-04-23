@@ -2,10 +2,13 @@ import tensorflow as tf
 import numpy as np
 import os,glob,cv2
 import sys,argparse
+import datetime
 
 def runPridict():
+    print('predict.py, line 7', datetime.datetime.now())
+
     dir_path = R'C:\TrashDetector\predict'
-    image_path = R'SimpelExample.jpg'
+    image_path = R'blur_Ncxfsd.jpg'
 
     # First, pass the path of the image
 
@@ -18,13 +21,18 @@ def runPridict():
     # Reading the image using OpenCV
     image = cv2.imread(filename)
     # Resizing the image to our desired size and preprocessing will be done exactly as done during training
+    print('predict.py, line 23', datetime.datetime.now())
     image = cv2.resize(image, (image_size, image_size),0,0, cv2.INTER_LINEAR)
+    print('predict.py, line 25', datetime.datetime.now())
     images.append(image)
     images = np.array(images, dtype=np.uint8)
     images = images.astype('float32')
     images = np.multiply(images, 1.0/255.0) 
+    print('predict.py, line 30', datetime.datetime.now())
+
     #The input to the network is of shape [None image_size image_size num_channels]. Hence we reshape.
     x_batch = images.reshape(1, image_size,image_size,num_channels)
+    print('predict.py, line 34', datetime.datetime.now())
 
     ## Let us restore the saved model 
     sess = tf.Session()
@@ -32,6 +40,7 @@ def runPridict():
     saver = tf.train.import_meta_graph(R'C:\TrashDetector\Data\StageDBData\cigarette-nonCigarette.meta')
     # Step-2: Now let's load the weights saved using the restore method.
     saver.restore(sess, tf.train.latest_checkpoint(R'C:\TrashDetector\Data\StageDBData'))
+    print('predict.py, line 42', datetime.datetime.now())
 
     #R'C:\Users\Chris\OneDrive\Skrivebord\cv-tricks.com-master\cv-tricks.com-master\Tensorflow-tutorials\tutorial-2-image-classifier\checkpoint'))
 
@@ -47,9 +56,11 @@ def runPridict():
     y_true = graph.get_tensor_by_name("y_true:0") 
     y_test_images = np.zeros((1, 2)) 
 
+    print('predict.py, line 58', datetime.datetime.now())
 
     ### Creating the feed_dict that is required to be fed to calculate y_pred 
     feed_dict_testing = {x: x_batch, y_true: y_test_images}
     result=sess.run(y_pred, feed_dict=feed_dict_testing)
     # result is of this format [probabiliy_of_rose probability_of_sunflower]
     print(result)
+    print('predict.py, line 65', datetime.datetime.now())

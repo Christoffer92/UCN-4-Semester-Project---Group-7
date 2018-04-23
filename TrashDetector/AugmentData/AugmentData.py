@@ -127,8 +127,9 @@ def augmentAllNonCigImages():
         colorMapImage(filePath, cv2.COLORMAP_WINTER, False)
 
 def augmentAllCigImages():
-    filePaths = SourceDatabase.getAllCigarettesImageFilesPaths()
+    filePaths = SourceDatabase.getAllCigarettesImageFilesPaths(True)
     i = 1;
+
 
     for filePath in filePaths:
         print('Augmenting image', i, '/', len(filePaths))
@@ -137,19 +138,19 @@ def augmentAllCigImages():
         flipImage(filePath, 0, True)
         flipImage(filePath, -1, True)
         blurImage(filePath, True)
-        colorMapImage(filePath, cv2.COLORMAP_AUTUMN, True)
-        colorMapImage(filePath, cv2.COLORMAP_BONE, True)
-        colorMapImage(filePath, cv2.COLORMAP_COOL, True)
-        colorMapImage(filePath, cv2.COLORMAP_HOT, True)
-        colorMapImage(filePath, cv2.COLORMAP_HSV, True)
-        colorMapImage(filePath, cv2.COLORMAP_JET, True)
-        colorMapImage(filePath, cv2.COLORMAP_OCEAN, True)
-        colorMapImage(filePath, cv2.COLORMAP_PARULA, True)
-        colorMapImage(filePath, cv2.COLORMAP_PINK, True)
-        colorMapImage(filePath, cv2.COLORMAP_RAINBOW, True)
-        colorMapImage(filePath, cv2.COLORMAP_SPRING, True)
-        colorMapImage(filePath, cv2.COLORMAP_SUMMER, True)
-        colorMapImage(filePath, cv2.COLORMAP_WINTER, True)
+        #colorMapImage(filePath, cv2.COLORMAP_AUTUMN, True)
+        #colorMapImage(filePath, cv2.COLORMAP_BONE, True)
+        #colorMapImage(filePath, cv2.COLORMAP_COOL, True)
+        #colorMapImage(filePath, cv2.COLORMAP_HOT, True)
+        #colorMapImage(filePath, cv2.COLORMAP_HSV, True)
+        #colorMapImage(filePath, cv2.COLORMAP_JET, True)
+        #colorMapImage(filePath, cv2.COLORMAP_OCEAN, True)
+        #colorMapImage(filePath, cv2.COLORMAP_PARULA, True)
+        #colorMapImage(filePath, cv2.COLORMAP_PINK, True)
+        #colorMapImage(filePath, cv2.COLORMAP_RAINBOW, True)
+        #colorMapImage(filePath, cv2.COLORMAP_SPRING, True)
+        #colorMapImage(filePath, cv2.COLORMAP_SUMMER, True)
+        #colorMapImage(filePath, cv2.COLORMAP_WINTER, True)
 
 #testing area
 augmentAllNonCigImages()

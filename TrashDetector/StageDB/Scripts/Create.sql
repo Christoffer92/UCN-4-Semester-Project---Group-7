@@ -13,5 +13,6 @@ ImageFileID INT,
 Latitiude VARCHAR(100),
 Longitude VARCHAR(100),
 DateCreated VARCHAR(100),
-IsTrash bit
+IsTrash bit,
+FOREIGN KEY (imageFileID) REFERENCES imageFiles(imageFileID)
 );

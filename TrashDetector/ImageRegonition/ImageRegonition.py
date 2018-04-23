@@ -1,6 +1,5 @@
 import Dataset
 
-#-Not used atm
 classes = ['Cigarrat', 'NonCiggarat']
 num_classes = len(classes)      
 
@@ -10,12 +9,7 @@ validation_size = 0.2
 # batch size  
 batch_size = 16
 
-
-
 data = Dataset.read_train_sets()
-
-
-
 
 def create_weights(shape):
     return tf.Variable(tf.truncated_normal(shape, stddev=0.05))

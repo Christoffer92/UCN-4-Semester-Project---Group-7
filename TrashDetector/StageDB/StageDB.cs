@@ -116,6 +116,22 @@ namespace StageDatabase
 
             return imageFiles;
         }
+
+        public List<ImageFile> GetAllImageFilesWithCig(bool isCig)
+        {
+            List<ImageFile> imageFiles = new List<ImageFile>();
+
+            using (var db = new StageDBContext())
+            {
+                var Query = from imageFile in db.imageFiles where imageFile.IsCigarette == true select imageFile;
+                foreach (ImageFile item in Query)
+                {
+                    imageFiles.Add(item);
+                }
+            }
+
+            return imageFiles;
+        }
         #endregion
     }
 }

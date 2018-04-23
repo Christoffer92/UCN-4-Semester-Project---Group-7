@@ -4,6 +4,7 @@ import glob
 from sklearn.utils import shuffle
 import numpy as np
 import SourceDatabase
+import datetime
 
 def load_train(train_path, image_size, classes):
     images = []
@@ -16,18 +17,23 @@ def load_train(train_path, image_size, classes):
         index = classes.index(fields)
         print('Now going to read {} files (Index: {})'.format(fields, index))
         
+        print('dataset.py, line 19', datetime.datetime.now())
         
         #path = os.path.join(train_path, fields, '*g')
         #files = glob.glob(path)
 
 
         if fields == 'cigarettes':
-            files = SourceDatabase.getAllCigarettesImageFilesPaths()
+            files = SourceDatabase.getAllCigarettesImageFilesPaths(True)
         elif fields == 'non_cigarettes':
             files = SourceDatabase.getAllNonCigarettesImageFilesPaths()
 
-        
+        print('dataset.py, line 31', datetime.datetime.now())
+        i = 0
+
         for fl in files:
+            i = i+1
+            print('Loading file: ', i, '/', len(files))
             image = cv2.imread(fl)
             image = cv2.resize(image, (image_size, image_size),0,0, cv2.INTER_LINEAR)
             image = image.astype(np.float32)
@@ -39,11 +45,12 @@ def load_train(train_path, image_size, classes):
             flbase = os.path.basename(fl)
             img_names.append(flbase)
             cls.append(fields)
+        print('dataset.py, line 45', datetime.datetime.now())
     images = np.array(images)
     labels = np.array(labels)
     img_names = np.array(img_names)
     cls = np.array(cls)
-
+    print('dataset.py, line 47', datetime.datetime.now())
     return images, labels, img_names, cls
 
 

@@ -5,6 +5,7 @@ from datetime import timedelta
 import math
 import random
 import numpy as np
+import datetime
 
 #Adding Seed so that random initialization is consistent
 from numpy.random import seed
@@ -13,7 +14,7 @@ from tensorflow import set_random_seed
 set_random_seed(2)
 
  
-batch_size = 10   #32
+batch_size = 2  #32
 
 #Prepare input data
 classes = ['cigarettes', 'non_cigarettes']
