@@ -5,7 +5,7 @@ print('testClass, line 3', datetime.datetime.now())
 #import train
 
 
-#print('testClass, line 9', datetime.datetime.now())
+print('testClass, line 9', datetime.datetime.now())
 
 #train.train(1000)
 

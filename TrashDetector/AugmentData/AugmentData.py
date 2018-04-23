@@ -1,10 +1,11 @@
 import cv2
-import SourceDatabase
+import TrainingDB
 import shutil
 import os.path
+import winsound
 
-cigarettesAugmentedDataPath = R'C:\TrashDetector\Data\StageDBData\augmented_data\cigarettes'
-nonCigarettesAugmentedDataPath = R'C:\TrashDetector\Data\StageDBData\augmented_data\non_cigarettes'
+cigarettesAugmentedDataPath = R'C:\TrashDetector\Data\TrainingDBData\augmented_data\cigarettes'
+nonCigarettesAugmentedDataPath = R'C:\TrashDetector\Data\TrainingDBData\augmented_data\non_cigarettes'
 
 def flipImage(filePath, orientation, isCiggarret):
     #finds the file name in filepath
@@ -38,7 +39,7 @@ def flipImage(filePath, orientation, isCiggarret):
         image = cv2.imread(newFilePath, 1)
         newImage = cv2.flip(image, orientation)
         cv2.imwrite(newFilePath, newImage)
-
+        
 def blurImage(filePath, isCiggarret):
     #finds the file name in filepath
     filePathSplitted = str(filePath).split('\\', -1)
@@ -101,17 +102,19 @@ def colorMapImage(filePath, colorMap, isCiggarret):
         image = cv2.imread(newFilePath, cv2.IMREAD_UNCHANGED)
         newImage = cv2.applyColorMap(image, colorMap)     
         cv2.imwrite(newFilePath, newImage)
-    
-def augmentAllNonCigImages():
-    filePaths = SourceDatabase.getAllNonCigarettesImageFilesPaths()
+
+def augmentImages(filePaths, isCig):
     i = 1;
     for filePath in filePaths:
         print('Augmenting image', i, '/', len(filePaths))
         i = i+1
-        flipImage(filePath, 1, False)
-        flipImage(filePath, 0, False)
-        flipImage(filePath, -1, False)
-        blurImage(filePath, False)
+        flipImage(filePath, 1, isCig)
+        flipImage(filePath, 0, isCig)
+        flipImage(filePath, -1, isCig)
+        blurImage(filePath, isCig)
+
+
+def augmentImageWithColorMaps(filePath):
         colorMapImage(filePath, cv2.COLORMAP_AUTUMN, False)
         colorMapImage(filePath, cv2.COLORMAP_BONE, False)
         colorMapImage(filePath, cv2.COLORMAP_COOL, False)
@@ -126,38 +129,18 @@ def augmentAllNonCigImages():
         colorMapImage(filePath, cv2.COLORMAP_SUMMER, False)
         colorMapImage(filePath, cv2.COLORMAP_WINTER, False)
 
+
 def augmentAllCigImages():
-    filePaths = SourceDatabase.getAllCigarettesImageFilesPaths(True)
-    i = 1;
+    cigFilePaths = TrainingDB.getAllCigarettesImageFilesPaths(True)
+    nonCigFilePaths = TrainingDB.getAllCigarettesImageFilesPaths(False)
+    augmentImages(cigFilePaths, True)
+    augmentImages(nonCigFilePaths, False)
 
-
-    for filePath in filePaths:
-        print('Augmenting image', i, '/', len(filePaths))
-        i = i+1
-        flipImage(filePath, 1, True)
-        flipImage(filePath, 0, True)
-        flipImage(filePath, -1, True)
-        blurImage(filePath, True)
-        #colorMapImage(filePath, cv2.COLORMAP_AUTUMN, True)
-        #colorMapImage(filePath, cv2.COLORMAP_BONE, True)
-        #colorMapImage(filePath, cv2.COLORMAP_COOL, True)
-        #colorMapImage(filePath, cv2.COLORMAP_HOT, True)
-        #colorMapImage(filePath, cv2.COLORMAP_HSV, True)
-        #colorMapImage(filePath, cv2.COLORMAP_JET, True)
-        #colorMapImage(filePath, cv2.COLORMAP_OCEAN, True)
-        #colorMapImage(filePath, cv2.COLORMAP_PARULA, True)
-        #colorMapImage(filePath, cv2.COLORMAP_PINK, True)
-        #colorMapImage(filePath, cv2.COLORMAP_RAINBOW, True)
-        #colorMapImage(filePath, cv2.COLORMAP_SPRING, True)
-        #colorMapImage(filePath, cv2.COLORMAP_SUMMER, True)
-        #colorMapImage(filePath, cv2.COLORMAP_WINTER, True)
 
 #testing area
-augmentAllNonCigImages()
-
+augmentAllCigImages()
+winsound.Beep(200, 500) #Sound to indicate its done augmenting all images. can take awhile.
 
 #Notes
 #Object tracking might be good but seems complicated.
 #cv2.CamShift
-
-

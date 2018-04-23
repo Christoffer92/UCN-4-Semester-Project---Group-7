@@ -3,7 +3,7 @@ import os
 import glob
 from sklearn.utils import shuffle
 import numpy as np
-import SourceDatabase
+import TrainingDB
 import datetime
 
 def load_train(train_path, image_size, classes):
@@ -24,9 +24,9 @@ def load_train(train_path, image_size, classes):
 
 
         if fields == 'cigarettes':
-            files = SourceDatabase.getAllCigarettesImageFilesPaths(True)
+            files = TrainingDB.getAllCigarettesImageFilesPaths(True)
         elif fields == 'non_cigarettes':
-            files = SourceDatabase.getAllNonCigarettesImageFilesPaths()
+            files = TrainingDB.getAllCigarettesImageFilesPaths(False)
 
         print('dataset.py, line 31', datetime.datetime.now())
         i = 0

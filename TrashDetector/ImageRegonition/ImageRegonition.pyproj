@@ -27,7 +27,7 @@
     </Compile>
     <Compile Include="ImageRegonition.py" />
     <Compile Include="predict.py" />
-    <Compile Include="SourceDatabase.py">
+    <Compile Include="TrainingDB.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="testClass.py">

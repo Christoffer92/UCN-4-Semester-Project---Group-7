@@ -7,7 +7,7 @@ import datetime
 def runPridict(image_path):
     #print('predict.py, line 7', datetime.datetime.now())
 
-    dir_path = R'C:\TrashDetector\Data\trainingData\test'
+    dir_path = R'C:\TrashDetector\Data\TrainingDBData\test'
 
     
 
