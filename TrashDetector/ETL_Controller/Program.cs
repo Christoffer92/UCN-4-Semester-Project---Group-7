@@ -13,18 +13,17 @@ namespace ETL_Controller
             ETLcontroller etlCtr = new ETLcontroller();
             etlCtr.ResetSourceDB();
             etlCtr.ResetStageDB();
+            etlCtr.ResetResultDB();
 
             etlCtr.InsertDataIntoSourceDB();
             etlCtr.LoadDataFromSourceDBtoStageDB();
             etlCtr.ExtractMetadataIntoStageDB();
 
-            //blur_blur_IMG_20180423_122036
-            //Method not done
             etlCtr.ImageRegonitionPrediction();
 
-            //Method not done
-            //etlCtr.LoadDataFromStageDBtoResultDB();
+            etlCtr.LoadDataFromStageDBtoResultDB();
 
+            
 
             
 
