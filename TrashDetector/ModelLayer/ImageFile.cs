@@ -19,11 +19,6 @@ namespace ModelLayer
         [Column()]
         public string FilePath { get; set; }
 
-        [Column()]
-        public string IsCig { get; set; }
-
-        [Column()]
-        public string IsNotCig { get; set; }
 
     }
 }

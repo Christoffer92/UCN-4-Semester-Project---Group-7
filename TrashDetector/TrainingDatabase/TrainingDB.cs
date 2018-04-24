@@ -45,6 +45,25 @@ namespace TrainingDatabase
             return 0;
         }
 
+        public void RunSQLScript(string SQLScriptName)
+        {
+            string sqlScript = null;
+
+            if (SQLScriptName.ToLower().Equals("reset"))
+            {
+                //To Do: This scripts need to be relative, but for now its local..
+                sqlScript = File.ReadAllText(@"C:\Users\Chris\Source\Repos\UCN-4-Semester-Project---Group-7\TrashDetector\TrainingDatabase\Scripts\Reset.sql");
+            }
+
+            if (sqlScript != null)
+            {
+                using (var db = new TrainingDBContext())
+                {
+                    db.ExecuteCommand(sqlScript);
+                }
+            }
+        }
+
         public int InsertSingleImageFile(string filePath)
         {
             int startIndexOfFilename = filePath.LastIndexOf('\\') + 1;
@@ -52,12 +71,7 @@ namespace TrainingDatabase
             ImageFile imageFile = new ImageFile();
             imageFile.FilePath = filePath;
             imageFile.FileName = fileName;
-
-            if (filePath.Contains("non_cigarettes"))
-                imageFile.IsCig = "1";
-            else
-                imageFile.IsNotCig = "0";
-
+            
             try
             {
                 using (var db = new TrainingDBContext())
@@ -72,6 +86,20 @@ namespace TrainingDatabase
                                   "Most likely is a violation of unique key constraint " +
                                   "because the file allready exisits in the database");
             }
+
+            if (filePath.Contains("non_cigarettes")) { 
+                using (var db = new TrainingDBContext())
+                {
+                    db.ExecuteCommand("UPDATE ImageFiles SET IsCig = 0 WHERE ID = " + imageFile.ID);
+                }
+            }
+            else{
+                using (var db = new TrainingDBContext())
+                {
+                    db.ExecuteCommand("UPDATE ImageFiles SET IsCig = 1 WHERE ID = " + imageFile.ID);
+                }
+            }
+
             return 0;
         }
 

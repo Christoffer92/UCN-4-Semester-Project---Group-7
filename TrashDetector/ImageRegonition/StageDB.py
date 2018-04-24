@@ -33,7 +33,7 @@ def updateIsCigOnSingleImageInfo(imageFileID, isCig_input, isNotCig):
     strIsNotCig = str(isNotCig)
     strImageFileID = str(imageFileID)
 
-    SQLCommand = ("UPDATE imageFiles SET IsCig = " + strIsCig + ", IsNotCig = " + strIsNotCig + " WHERE ID = " + strImageFileID) 
+    SQLCommand = ("UPDATE imageInfos SET IsCig = " + strIsCig + ", IsNotCig = " + strIsNotCig + " WHERE imageFileID = " + strImageFileID) 
     print(SQLCommand)
     cursor.execute(SQLCommand)
 

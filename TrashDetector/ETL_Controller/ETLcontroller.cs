@@ -39,11 +39,11 @@ namespace ETL_Controller
             throw new NotImplementedException();
         }
 
-        internal void ImageRegonitionPrediction()
+        public void ImageRegonitionPrediction()
         {
             PythonInterpreter pythonInterpreter = new PythonInterpreter();
             //TODO needs to be a relative path.
-            pythonInterpreter.run_cmd(@"C:\Users\Chris\Source\Repos\UCN-4-Semester-Project---Group-7\TrashDetector\ImageRegonition\predictBatchFromStageDB.py");
+            pythonInterpreter.RunCmd(@"C:\Users\Chris\Source\Repos\UCN-4-Semester-Project---Group-7\TrashDetector\ImageRegonition\predictBatchFromStageDB.py");
         }
 
         public void ResetSourceDB()
