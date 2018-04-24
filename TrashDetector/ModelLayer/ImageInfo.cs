@@ -28,10 +28,10 @@ namespace ModelLayer
         [Column()]
         public string DateCreated { get; set; }
 
-
-
+        [Column()]
+        public bool IsCig { get; set; }
 
         [Column()]
-        public bool IsTrash { get; set; }
+        public bool IsNotCig { get; set; }
     }
 }

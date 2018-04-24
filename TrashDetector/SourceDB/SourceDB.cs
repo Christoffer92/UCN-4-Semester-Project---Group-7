@@ -103,7 +103,28 @@ namespace SourceDatabase
 
             return imageFiles;
 
-            #endregion
+        }
+
+        #endregion
+
+        public void RunSQLScript(string SQLScriptName)
+        {
+            string sqlScript = null;
+
+            if (SQLScriptName.ToLower().Equals("reset"))
+            {
+                //To Do: This scripts need to be relative, but for now its local..
+                sqlScript = File.ReadAllText(@"C:\Users\Chris\Source\Repos\UCN-4-Semester-Project---Group-7\TrashDetector\SourceDB\Scripts\Reset.sql");
+            }
+
+            if (sqlScript != null)
+            {
+                using (var db = new SourceDBContext())
+                {
+                    db.ExecuteCommand(sqlScript);
+                }
+            }
+                
         }
     }
 }
