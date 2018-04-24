@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>5c4f5802-eee2-4aef-831a-c8bce5772639</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>testClass.py</StartupFile>
+    <StartupFile>predictBatchFromStageDB.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -27,10 +27,13 @@
     </Compile>
     <Compile Include="ImageRegonition.py" />
     <Compile Include="predict.py" />
+    <Compile Include="StageDB.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="TrainingDB.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="testClass.py">
+    <Compile Include="predictBatchFromStageDB.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="train.py" />

@@ -25,6 +25,26 @@ namespace StageDatabase
             }
         }
 
+        public void RunSQLScript(string SQLScriptName)
+        {
+            string sqlScript = null;
+
+            if (SQLScriptName.ToLower().Equals("reset"))
+            {
+                //To Do: This scripts need to be relative, but for now its local..
+                sqlScript = File.ReadAllText(@"C:\Users\Chris\Source\Repos\UCN-4-Semester-Project---Group-7\TrashDetector\StageDB\Scripts\Reset.sql");
+            }
+
+            if (sqlScript != null)
+            {
+                using (var db = new StageDBContext())
+                {
+                    db.ExecuteCommand(sqlScript);
+                }
+            }
+
+        }
+
         #region Insert Methods 
 
         public ImageInfo InsertImageInfo(ImageInfo imageInfo)
@@ -55,10 +75,10 @@ namespace StageDatabase
             imageFile.FilePath = filePath;
             imageFile.FileName = fileName;
 
-            if (filePath.Contains("non_cigarettes"))
-                imageFile.IsCigarette = false;
-            else
-                imageFile.IsCigarette = true;
+            //if (filePath.Contains("non_cigarettes"))
+            //    imageFile.IsCigarette = false;
+            //else
+            //    imageFile.IsCigarette = true;
 
             try
             {
@@ -123,7 +143,7 @@ namespace StageDatabase
 
             using (var db = new StageDBContext())
             {
-                var Query = from imageFile in db.imageFiles where imageFile.IsCigarette == true select imageFile;
+                var Query = from imageFile in db.imageFiles where imageFile.IsCig == "1" select imageFile;
                 foreach (ImageFile item in Query)
                 {
                     imageFiles.Add(item);

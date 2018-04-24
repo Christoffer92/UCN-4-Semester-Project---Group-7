@@ -54,9 +54,9 @@ namespace TrainingDatabase
             imageFile.FileName = fileName;
 
             if (filePath.Contains("non_cigarettes"))
-                imageFile.IsCigarette = false;
+                imageFile.IsCig = "1";
             else
-                imageFile.IsCigarette = true;
+                imageFile.IsNotCig = "0";
 
             try
             {

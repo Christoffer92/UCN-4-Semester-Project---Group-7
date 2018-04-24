@@ -20,7 +20,10 @@ namespace ModelLayer
         public string FilePath { get; set; }
 
         [Column()]
-        public bool IsCigarette { get; set; }
+        public string IsCig { get; set; }
+
+        [Column()]
+        public string IsNotCig { get; set; }
 
     }
 }

@@ -7,7 +7,7 @@ import datetime
 def runPridict(image_path):
     #print('predict.py, line 7', datetime.datetime.now())
 
-    dir_path = R'C:\TrashDetector\Data\TrainingDBData\test'
+    dir_path = R'C:\TrashDetector\Data\SourceDBData'
 
     
 
@@ -64,4 +64,5 @@ def runPridict(image_path):
     result=sess.run(y_pred, feed_dict=feed_dict_testing)
     # result is of this format [probabiliy_of_rose probability_of_sunflower]
     print(result)
+    return(result)
     #print('predict.py, line 65', datetime.datetime.now())

@@ -28,9 +28,6 @@ namespace ModelLayer
         [Column()]
         public string DateCreated { get; set; }
 
-
-
-
         [Column()]
         public bool IsTrash { get; set; }
     }
