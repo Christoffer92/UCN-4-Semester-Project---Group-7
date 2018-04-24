@@ -21,7 +21,7 @@ namespace ETL_Controller
                 UseShellExecute = false,
                 CreateNoWindow = false
             };
-            Console.WriteLine("stating");
+            Console.WriteLine("Starting Python Code.");
             p.Start();
 
             string output = p.StandardOutput.ReadToEnd();
@@ -29,7 +29,7 @@ namespace ETL_Controller
 
             Console.WriteLine(output);
 
-            Console.WriteLine("finished");
+            Console.WriteLine("Finished Python Code");
 
             Console.ReadLine();
         }
