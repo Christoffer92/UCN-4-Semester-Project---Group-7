@@ -81,6 +81,10 @@
       <Project>{2a40440c-8faf-4772-8ff9-a1c03473b57a}</Project>
       <Name>ModelLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ResultDatabase\ResultDatabase.csproj">
+      <Project>{4954d4ab-8a58-4ed7-a51f-c9ea00617f2f}</Project>
+      <Name>ResultDatabase</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SourceDB\SourceDatabase.csproj">
       <Project>{ca7471d1-85d6-41e7-adc4-800404e8827a}</Project>
       <Name>SourceDatabase</Name>

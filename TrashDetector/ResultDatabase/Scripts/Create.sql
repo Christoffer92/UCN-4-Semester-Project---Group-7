@@ -1,7 +1,4 @@
-﻿USE TStageDatabase
-
-DROP TABLE IF EXISTS imageInfos;
-DROP TABLE IF EXISTS imageFiles;
+﻿USE TResultDatabase
 
 CREATE TABLE imageFiles (
 ID int IDENTITY(1,1) PRIMARY KEY,
@@ -12,10 +9,10 @@ FilePath varchar(400)
 CREATE TABLE imageInfos (
 ID int IDENTITY(1,1) PRIMARY KEY,
 ImageFileID INT,
-Latitiude DECIMAL(12,4),
-Longitude DECIMAL(12,4),
+Latitiude VARCHAR(100),
+Longitude VARCHAR(100),
 DateCreated VARCHAR(100),
-IsCig DECIMAL(12,4),
-IsNotCig DECIMAL(12,4),
+IsCig VARCHAR(100),
+IsNotCig VARCHAR(100),
 FOREIGN KEY (imageFileID) REFERENCES imageFiles(ID)
 );

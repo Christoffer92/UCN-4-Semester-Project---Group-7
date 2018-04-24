@@ -1,4 +1,4 @@
-﻿USE TStageDatabase
+﻿USE TResultDatabase
 
 DROP TABLE IF EXISTS imageInfos;
 DROP TABLE IF EXISTS imageFiles;

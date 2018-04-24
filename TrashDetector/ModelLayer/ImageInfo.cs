@@ -20,18 +20,18 @@ namespace ModelLayer
 
 
         [Column()]
-        public decimal Latitiude { get; set; }
+        public Decimal Latitiude { get; set; }
 
         [Column()]
-        public decimal Longitude { get; set; }
+        public Decimal Longitude { get; set; }
 
         [Column()]
         public string DateCreated { get; set; }
 
         [Column()]
-        public bool IsCig { get; set; }
+        public Decimal IsCig { get; set; }
 
         [Column()]
-        public bool IsNotCig { get; set; }
+        public Decimal IsNotCig { get; set; }
     }
 }

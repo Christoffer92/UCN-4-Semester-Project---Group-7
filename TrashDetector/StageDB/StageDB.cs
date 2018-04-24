@@ -132,6 +132,26 @@ namespace StageDatabase
             return imageFiles;
         }
 
+        public List<ImageInfo> GetAllImageInfos()
+        {
+            List<ImageInfo> imageInfos = new List<ImageInfo>();
+
+            using (var db = new StageDBContext())
+            {
+                var Query = from imageInfo in db.imageInfos select imageInfo;
+                //foreach (ImageInfo item in Query)
+                //{
+                //    Console.WriteLine(item.IsCig);
+                //}
+                foreach (ImageInfo item in Query)
+                {
+                    imageInfos.Add(item);
+                }
+            }
+
+            return imageInfos;
+        }
+
         //public List<ImageFile> GetAllImageFilesWithCig(bool isCig)
         //{
         //    List<ImageFile> imageFiles = new List<ImageFile>();
