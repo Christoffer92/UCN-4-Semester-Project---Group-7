@@ -10,6 +10,9 @@ namespace StageDatabase
 {
     public class StageDB
     {
+        private static string stageDBDataPathUnprocessed = @"C:\TrashDetector\Data\StageDBData\unprocessed\";
+        public static string stageDBDataLog = @"C:\TrashDetector\Data\StageDBData\log.txt";
+
         public bool DatabaseExists()
         {
             try
@@ -67,6 +70,16 @@ namespace StageDatabase
             return imageFile;
         }
 
+        public void UpdateImageFilePath(ImageFile newImageFile)
+        {
+            using (var db = new StageDBContext())
+            {
+                var Query = (from imageFile in db.imageFiles where imageFile.ID == newImageFile.ID select imageFile).First();
+                Query.FilePath = newImageFile.FilePath;
+                db.SubmitChanges();
+            }
+        }
+
         public int InsertSingleImageFile(string filePath)
         {
             int startIndexOfFilename = filePath.LastIndexOf('\\') + 1;
@@ -105,6 +118,21 @@ namespace StageDatabase
             return 0;
         }
 
+        public void InsertBatchImageFilesFromSourceDB(int amount, string folderPath)
+        {
+            int i = 0;
+            foreach (string file in Directory.EnumerateFiles(folderPath, "*.jpg"))
+            {
+                if (amount <= 0)
+                    break;
+
+                i++;
+                InsertSingleImageFile(file);
+                Console.WriteLine("Inserted: " + i + " / " + amount);
+
+                amount--;
+            }
+        }
         #endregion
 
         #region Get Methods

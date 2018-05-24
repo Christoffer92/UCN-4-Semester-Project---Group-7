@@ -108,61 +108,6 @@ namespace TransformData
                     }
                 case 5:
                     {
-                        //System.GPS.Latitude
-                        //string value1 = propertyItem.Value[0].ToString();
-                        // string value2 = propertyItem.Value[1].ToString();
-                        // string value3 = propertyItem.Value[2].ToString();
-
-                        //return value1 + " ";// + value2 + " " + value3;
-
-
-                        //string res = System.Text.Encoding.UTF8.GetString(propertyItem.Value);
-
-                        //return res;
-
-
-                        /*
-                        /*
-                            Specifies that Value data member is an array of pairs of unsigned long integers. Each pair represents a fraction; the first integer is the numerator and the second integer is the denominator. 
-                         * */
-                        //one pair is 4 bytes
-                        // ulong value = BitConverter.ToUInt32(propertyItem.Value, 0);
-                        //ulong value2 = BitConverter.ToUInt32(propertyItem.Value, 4);
-
-                        //double value = BitConverter.ToUInt32(propertyItem.Value, 0);
-                        //double value2 = BitConverter.ToUInt32(propertyItem.Value, 4);
-
-                        // double value2 = BitConverter.ToDouble(propertyItem.Value, 0);
-                        //double value2 = BitConverter.ToDouble(propertyItem.Value, 2);
-
-
-                        // return value + " & " + value2;
-
-                        //uint degreesNumerator = BitConverter.ToUInt32(propertyItem.Value, 0);
-                        //uint degreesDenominator = BitConverter.ToUInt32(propertyItem.Value, 1);
-                        //uint minutesNumerator = BitConverter.ToUInt32(propertyItem.Value, 2);
-                        // uint minutesDenominator = BitConverter.ToUInt32(propertyItem.Value, 12);
-                        //uint secondsNumerator = BitConverter.ToUInt32(propertyItem.Value, 16);
-                        // uint secondsDenominator = BitConverter.ToUInt32(propertyItem.Value, 20);
-
-                        //return degreesNumerator + "&" + degreesDenominator;
-
-                        //BitConverter.ToUInt32(propertyItem.Value, 8);
-
-                        // photo.exif.
-
-                        // return BitConverter.ToUInt32(propertyItem.Value, 0) + " " + BitConverter.ToUInt32(propertyItem.Value, 1) + " " + BitConverter.ToUInt32(propertyItem.Value, 2);
-
-                        // return DecodeRational64u(propertyItem.Value);
-
-                        //string gpsLatitudeRef = BitConverter.ToChar(image.GetPropertyItem(1).Value, 0).ToString();
-                        //string latitude = DecodeRational64u(image.GetPropertyItem(2));
-                        //string gpsLongitudeRef = BitConverter.ToChar(image.GetPropertyItem(3).Value, 0).ToString();
-                        //string longitude = DecodeRational64u(image.GetPropertyItem(4));
-                        //Console.WriteLine("{0}\t{1} {2}, {3} {4}", file, gpsLatitudeRef, latitude, gpsLongitudeRef, longitude);
-
-                        //8-8-8
-
                         uint dN = BitConverter.ToUInt32(propertyItem.Value, 0);
                         uint dD = BitConverter.ToUInt32(propertyItem.Value, 4);
                         uint dD2 = 0;
@@ -209,20 +154,9 @@ namespace TransformData
 
         public void CollectInformation()
         {
-            SourceDB sourceDB = new SourceDB();
+            StageDB stageDB = new StageDB();
 
-            // ImageFile imageFile = sourceDB.GetImageFile(1);
-
-            //Image image = new Bitmap(@"C:\TrashDetector\Data\SourceDBData\SimpelExample.jpg");
-
-            //PrintMetaData(image);
-
-            //ExtractLocation(image1);
-            
-                       
-   
-
-            List<ImageFile> imageFiles = sourceDB.GetAllImageFiles();
+            List<ImageFile> imageFiles = stageDB.GetAllImageFiles();
 
             int i = 1;
 
@@ -242,6 +176,7 @@ namespace TransformData
             ImageInfo imageInfo = new ImageInfo();
             imageInfo.ImageFileID = imageFile.ID;
 
+
             try
             {
                 imageInfo.Longitude = GetLongitude(image);
@@ -250,9 +185,10 @@ namespace TransformData
             }
             catch (Exception)
             {
-                
+                Console.WriteLine("No gps data on image: " + imageFile.FileName);
             }
 
+            image.Dispose();
 
             return imageInfo;
         }
@@ -273,8 +209,8 @@ namespace TransformData
 
         public decimal GetLongitude(Image image)
         {
-            decimal latiti = DecodeRational64uTest(image.GetPropertyItem(2));
-            return latiti;
+            decimal longitude = DecodeRational64uTest(image.GetPropertyItem(2));
+            return longitude;
         }
 
         public decimal GetLatitiude(Image image)
@@ -353,10 +289,6 @@ namespace TransformData
 
             // Decimal Degrees = Degrees + minutes / 60 + seconds / 3600
             return deg + min / 60 + sec / 3600; 
-
-
-            //if (sec == 0) return string.Format("{0}° {1:0.###}'", deg, min);
-            //else return string.Format("{0}° {1:0}' {2:0.#}\"", deg, min, sec);
         }
     }
 }

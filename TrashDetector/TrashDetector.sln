@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETL_Controller", "ETL_Contr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResultDatabase", "ResultDatabase\ResultDatabase.csproj", "{4954D4AB-8A58-4ED7-A51F-C9EA00617F2F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccessLayer", "DataAccessLayer", "{3C64ED24-836C-47EC-9D72-950DFE9AA99B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CA7471D1-85D6-41E7-ADC4-800404E8827A} = {3C64ED24-836C-47EC-9D72-950DFE9AA99B}
+		{A6A068FA-8ACB-4973-A9B4-98887D38A4B7} = {3C64ED24-836C-47EC-9D72-950DFE9AA99B}
+		{DF3CFBF6-1770-4895-96B3-08098809999E} = {3C64ED24-836C-47EC-9D72-950DFE9AA99B}
+		{4954D4AB-8A58-4ED7-A51F-C9EA00617F2F} = {3C64ED24-836C-47EC-9D72-950DFE9AA99B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DB0AC9BE-D12D-4CB5-B273-95DA7598E493}

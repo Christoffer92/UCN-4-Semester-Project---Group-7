@@ -18,7 +18,5 @@ namespace ModelLayer
 
         [Column()]
         public string FilePath { get; set; }
-
-
     }
 }

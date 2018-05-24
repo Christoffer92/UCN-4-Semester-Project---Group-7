@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ETL_Controller
@@ -25,13 +26,14 @@ namespace ETL_Controller
             p.Start();
 
             string output = p.StandardOutput.ReadToEnd();
-            p.WaitForExit();
+            p.Dispose();
+            //p.WaitForExit();
+            //Console.WriteLine(p.ExitTime);
+            
+            //p.Close();
 
             Console.WriteLine(output);
-
             Console.WriteLine("Finished Python Code");
-
-            Console.ReadLine();
         }
     }
 }

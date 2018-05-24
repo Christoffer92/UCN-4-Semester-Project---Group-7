@@ -2,6 +2,7 @@ import datetime
 import predict
 import StageDB as stageDB
 
+
 imageFiles = stageDB.getAllImageFiles();
 
 
@@ -20,5 +21,4 @@ for row in imageFiles:
     stageDB.updateIsCigOnSingleImageInfo(imageFileID, isCig, isNonCig)
     
     
-
 print('Finished: ', datetime.datetime.now())

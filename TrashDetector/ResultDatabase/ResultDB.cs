@@ -45,6 +45,14 @@ namespace ResultDatabase
 
         }
 
+        public int GetImageFilesCount()
+        {
+            using (var db = new ResultDBContext())
+            {
+                return (from imageFile in db.imageFiles select imageFile).Count();
+            }
+        }
+
         #region Insert Methods
         public ImageInfo InsertImageInfo(ImageInfo imageInfo)
         {

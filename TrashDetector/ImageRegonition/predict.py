@@ -7,8 +7,7 @@ import datetime
 def runPridict(image_path):
     #print('predict.py, line 7', datetime.datetime.now())
 
-    dir_path = R'C:\TrashDetector\Data\SourceDBData'
-
+    dir_path = R'C:\TrashDetector\Data\StageDBData\unprocessed'
     
 
     # First, pass the path of the image
@@ -38,9 +37,9 @@ def runPridict(image_path):
     ## Let us restore the saved model 
     sess = tf.Session()
     # Step-1: Recreate the network graph. At this step only graph is created.
-    saver = tf.train.import_meta_graph(R'C:\TrashDetector\Data\StageDBData\cigarette-nonCigarette.meta')
+    saver = tf.train.import_meta_graph(R'C:\TrashDetector\Data\TrainingDBData\models\260a1315\Cigarette-nonCigarette.meta')
     # Step-2: Now let's load the weights saved using the restore method.
-    saver.restore(sess, tf.train.latest_checkpoint(R'C:\TrashDetector\Data\StageDBData'))
+    saver.restore(sess, tf.train.latest_checkpoint(R'C:\TrashDetector\Data\TrainingDBData\models\260a1315'))
     #print('predict.py, line 42', datetime.datetime.now())
 
     #R'C:\Users\Chris\OneDrive\Skrivebord\cv-tricks.com-master\cv-tricks.com-master\Tensorflow-tutorials\tutorial-2-image-classifier\checkpoint'))
@@ -64,5 +63,6 @@ def runPridict(image_path):
     result=sess.run(y_pred, feed_dict=feed_dict_testing)
     # result is of this format [probabiliy_of_rose probability_of_sunflower]
     print(result)
+
     return(result)
     #print('predict.py, line 65', datetime.datetime.now())

@@ -18,8 +18,8 @@ namespace TrainingDatabase
 
             trainingDB.InsertAllImageFilesFromFolder(@"C:\TrashDetector\Data\TrainingDBData\cigarettes");
             trainingDB.InsertAllImageFilesFromFolder(@"C:\TrashDetector\Data\TrainingDBData\non_cigarettes");
-            //trainingDB.InsertAllImageFilesFromFolder(@"C:\TrashDetector\Data\TrainingDBData\augmented_data\non_cigarettes");
-            //trainingDB.InsertAllImageFilesFromFolder(@"C:\TrashDetector\Data\TrainingDBData\augmented_data\cigarettes");
+            trainingDB.InsertAllImageFilesFromFolder(@"C:\TrashDetector\Data\TrainingDBData\augmented_data\non_cigarettes");
+            trainingDB.InsertAllImageFilesFromFolder(@"C:\TrashDetector\Data\TrainingDBData\augmented_data\cigarettes");
         }
     }
 }

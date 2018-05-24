@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ModelLayer;
+using StageDatabase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,25 +11,15 @@ namespace ETL_Controller
     public class Program
     {
         static void Main(string[] args)
+
         {
             ETLcontroller etlCtr = new ETLcontroller();
-            etlCtr.ResetSourceDB();
-            etlCtr.ResetStageDB();
-            etlCtr.ResetResultDB();
 
-            etlCtr.InsertDataIntoSourceDB();
-            etlCtr.LoadDataFromSourceDBtoStageDB();
-            etlCtr.ExtractMetadataIntoStageDB();
+            //etlCtr.BigReset();
 
-            etlCtr.ImageRegonitionPrediction();
+            //etlCtr.InsertDataIntoSourceDB();
 
-            etlCtr.LoadDataFromStageDBtoResultDB();
-
-            
-
-            
-
-
+            etlCtr.ProcessBatchFromSourceDBToResultDB(20);
 
             Console.ReadLine();
         }

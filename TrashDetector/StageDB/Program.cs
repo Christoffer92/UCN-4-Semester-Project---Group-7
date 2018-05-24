@@ -15,11 +15,13 @@ namespace StageDatabase
             stageDB.DatabaseExists();
 
 
-            stageDB.InsertAllImageFilesFromFolder(@"C:\TrashDetector\Data\StageDBData\cigarettes");
-            stageDB.InsertAllImageFilesFromFolder(@"C:\TrashDetector\Data\StageDBData\non_cigarettes");
+            //stageDB.InsertAllImageFilesFromFolder(@"C:\TrashDetector\Data\StageDBData\cigarettes");
+            //stageDB.InsertAllImageFilesFromFolder(@"C:\TrashDetector\Data\StageDBData\non_cigarettes");
             //stageDB.InsertAllImageFilesFromFolder(@"C:\TrashDetector\Data\StageDBData\augmented_data\cigarettes");
             //stageDB.InsertAllImageFilesFromFolder(@"C:\TrashDetector\Data\StageDBData\augmented_data\non_cigarettes");
 
+
+            stageDB.InsertBatchImageFilesFromSourceDB(1, @"C:\TrashDetector\Data\SourceDBData\IMG");
 
             Console.ReadLine();
 

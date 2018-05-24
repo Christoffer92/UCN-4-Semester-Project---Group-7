@@ -26,6 +26,14 @@ namespace SourceDatabase
             }
         }
 
+        public int GetImageFilesCount()
+        {
+            using (var db = new SourceDBContext())
+            {
+                return (from imageFile in db.imageFiles select imageFile).Count();
+            }
+        }
+
         #region Insert Methods 
 
         public ImageFile InsertImageFile(ImageFile imageFile)
@@ -107,9 +115,10 @@ namespace SourceDatabase
 
         #endregion
 
-        public void RunSQLScript(string SQLScriptName)
+        public int RunSQLScript(string SQLScriptName)
         {
             string sqlScript = null;
+            int ress = 0;
 
             if (SQLScriptName.ToLower().Equals("reset"))
             {
@@ -121,9 +130,11 @@ namespace SourceDatabase
             {
                 using (var db = new SourceDBContext())
                 {
-                    db.ExecuteCommand(sqlScript);
+                    ress = db.ExecuteCommand(sqlScript);
                 }
             }
+
+            return ress;
                 
         }
     }

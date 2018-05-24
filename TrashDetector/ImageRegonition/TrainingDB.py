@@ -28,9 +28,9 @@ def getAllCigarettesImageFilesPaths(isCig):
     SQLCommand = '';
 
     if isCig == 1:
-        SQLCommand = ("SELECT FilePath FROM imageFiles Where IsCigarette=1;") 
+        SQLCommand = ("SELECT FilePath FROM imageFiles Where IsCig=1;") 
     elif isCig == 0:
-        SQLCommand = ("SELECT FilePath FROM imageFiles Where IsCigarette=0;") 
+        SQLCommand = ("SELECT FilePath FROM imageFiles Where IsCig=0;") 
     
     cursor.execute(SQLCommand) 
     rowArray = []

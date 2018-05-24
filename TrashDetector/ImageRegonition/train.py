@@ -114,7 +114,7 @@ def create_fc_layer(input,
              num_outputs,
              use_relu=True):
     
-    #Let's define trainable weights and biases.
+    #defining trainable weights and biases.
     weights = create_weights(shape=[num_inputs, num_outputs])
     biases = create_biases(num_outputs)
 
@@ -198,9 +198,11 @@ def train(num_iteration):
             epoch = int(i / int(data.train.num_examples/batch_size))    
             
             show_progress(epoch, feed_dict_tr, feed_dict_val, val_loss)
-            saver.save(session, R'C:\TrashDetector\Data\StageDBData\cigarette-nonCigarette') 
+            saver.save(session, R'C:\TrashDetector\Data\TrainingDBData\models\260a1315\Cigarette-nonCigarette') 
 
 
     total_iterations += num_iteration
 
-#train(num_iteration=1000)
+
+
+train(num_iteration=1000)

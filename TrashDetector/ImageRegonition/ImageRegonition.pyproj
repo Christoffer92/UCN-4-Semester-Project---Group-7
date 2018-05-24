@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>5c4f5802-eee2-4aef-831a-c8bce5772639</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>predictBatchFromStageDB.py</StartupFile>
+    <StartupFile>predict.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
